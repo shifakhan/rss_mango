@@ -1,0 +1,21 @@
+<%= form_for(@feed, :class => 'form-horizontal') do |f| %>
+  <% if @feed.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@feed.errors.count, "error") %> prohibited this feed from being saved:</h2>
+
+      <ul>
+      <% @feed.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.text_field :url, placeholder: 'Enter URL of RSS Feed', :class=> 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit form_submit_text, :class => 'btn btn-primary' %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'New Feed', new_feed_path, :class => 'btn btn-primary' %>
+
+<h3>All Feeds</h3>
+
+<table class= "table table-bordered">
+  <thead>
+    <tr>
+      <th>URL</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @feeds.each do |feed| %>
+      <tr>
+        <td> <%=feed.url%> </td>
+        <td>
+          <%= link_to 'Show', feed, :class => 'btn btn-primary' %>
+          <%= link_to 'Edit', edit_feed_path(feed), :class => 'btn btn-warning' %>
+          <%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
