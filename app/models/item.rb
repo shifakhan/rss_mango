@@ -26,7 +26,7 @@ class Item
     end
 
     def sanitize_pubdate
-      @data.xpath('pubdate').text.to_time.to_formatted_s(:rfc822)
+      @data.xpath('pubdate').text.to_time
     end
 
     def sanitize_link

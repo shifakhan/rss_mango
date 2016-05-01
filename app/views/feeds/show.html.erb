@@ -16,15 +16,6 @@
 <hr>
 <div class='items'>
   <% @parse_feed.items.each do |item| %>
-    <% if item.errors %>
-      <p> <%= item.errors.join(',') %> </p>
-    <% end %>
-    <h4>
-      <%= link_to item.title, item.link, :target => "_blank" %>
-    </h4>
-    <p><%= item.pubdate %></p>
-    <p><%= item.description %></p>
-    <p><%= link_to 'Read Full Article', item.link, :target => "_blank" %></p>
-    <hr>
+    <%= render 'item', item: item %>
   <% end %>
 </div>

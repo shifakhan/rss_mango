@@ -1,0 +1,7 @@
+<h2>Reader</h2>
+<br><br>
+<div class='items'>
+  <% @items.each do |item| %>
+    <%= render 'item', item: item %>
+  <% end %>
+</div>

@@ -1,0 +1,14 @@
+<div class="item">
+  <% if item.errors %>
+    <p> <%= item.errors.join(',') %> </p>
+  <% end %>
+  <h4 class="title">
+    <%= link_to item.title, item.link, :target => "_blank" %>
+  </h4>
+  <div class="details">
+    <p><%= item.pubdate.to_formatted_s(:rfc822) %></p>
+    <p><%= item.description %></p>
+    <p><%= link_to 'Read Full Article', item.link, :target => "_blank" %></p>
+  </div>
+  <hr>
+</div>

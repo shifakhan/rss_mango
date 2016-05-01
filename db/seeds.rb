@@ -8,8 +8,7 @@
 feeds = [
   { url: 'http://news.yahoo.com/rss/' },
   { url: 'http://rss.cnn.com/rss/cnn_topstories.rss' },
-  { url: 'http://feeds.feedburner.com/Makeuseof' },
-  { url: 'http://feeds.sciencedaily.com/sciencedaily' },
+  { url: 'http://feeds.feedburner.com/TechCrunch/' },
   { url: 'http://timesofindia.indiatimes.com/rssfeedstopstories.cms' }
 ]
 feeds.each do |feed_params|

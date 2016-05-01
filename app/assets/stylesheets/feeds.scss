@@ -7,4 +7,10 @@
     max-width: 200px;
     max-height: 200px;
   }
+  .details{
+    display: none;
+  }
+  .item:hover .details {
+    display: block;
+  }
 }
