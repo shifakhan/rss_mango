@@ -1,4 +1,30 @@
 <p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_feed_path(@feed) %> |
-<%= link_to 'Back', feeds_path %>
+<% if @parse_feed.errors %>
+  <% @parse_feed.errors.each do |error| %>
+    <h4><%= error %> </h4>
+  <% end %>
+<% end %>
+<div class='row'>
+  <div class='col-sm-9'><h2><%= @parse_feed.title %></h2></div>
+  <div class='col-sm-3 pull-right'>
+    <div class='pull-right'><h2>
+      <%= link_to 'Edit', edit_feed_path(@feed), :class => 'btn btn-primary' %>
+      <%= link_to 'Back', feeds_path , :class => 'btn btn-primary' %>
+    </h2></div>
+  </div>
+</div>
+<hr>
+<div class='items'>
+  <% @parse_feed.items.each do |item| %>
+    <% if item.errors %>
+      <p> <%= item.errors.join(',') %> </p>
+    <% end %>
+    <h4>
+      <%= link_to item.title, item.link, :target => "_blank" %>
+    </h4>
+    <p><%= item.pubdate %></p>
+    <p><%= item.description %></p>
+    <p><%= link_to 'Read Full Article', item.link, :target => "_blank" %></p>
+    <hr>
+  <% end %>
+</div>

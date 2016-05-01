@@ -1,8 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'New Feed', new_feed_path, :class => 'btn btn-primary' %>
 
-<h3>All Feeds</h3>
+<div class='row'>
+  <div class='col-sm-9'><h2> All Feeds </h2></div>
+  <div class='col-sm-3'>
+    <div class='pull-right'>
+      <h2><%= link_to 'New Feed', new_feed_path, :class => 'btn btn-primary' %></h2>
+    </div>
+  </div>
+</div>
 
 <table class= "table table-bordered">
   <thead>

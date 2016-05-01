@@ -10,6 +10,7 @@ class FeedsController < ApplicationController
   # GET /feeds/1
   # GET /feeds/1.json
   def show
+    @parse_feed = ParseFeed.new(@feed).data
   end
 
   # GET /feeds/new
@@ -25,25 +26,20 @@ class FeedsController < ApplicationController
   # POST /feeds.json
   def create
     @feed = Feed.new(feed_params)
-
-    respond_to do |format|
-      if @feed.save
-        redirect_to @feed, notice: 'Feed was successfully created.'
-      else
-        render :new
-      end
+    if @feed.save
+      redirect_to @feed, notice: 'Feed was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /feeds/1
   # PATCH/PUT /feeds/1.json
   def update
-    respond_to do |format|
-      if @feed.update(feed_params)
-        redirect_to @feed, notice: 'Feed was successfully updated.'
-      else
-        render :edit
-      end
+    if @feed.update(feed_params)
+      redirect_to @feed, notice: 'Feed was successfully updated.'
+    else
+      render :edit
     end
   end
 
